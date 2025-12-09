@@ -471,6 +471,46 @@
             width: 50%;
         }
 
+        /* >>> NEW MOBILE CARD LAYOUT (768px and below) <<< */
+        @media (max-width: 768px) {
+            #main-carousel-container .carousel-card {
+                /* Adjust card height for the new stacked layout */
+                height: 400px; 
+            }
+            #main-carousel-container .carousel-card-inner {
+                /* Switch to vertical layout */
+                flex-direction: column;
+            }
+
+            #main-carousel-container .card-image-section {
+                /* Image takes full width of the card, fixed height */
+                width: 100%;
+                height: 500px; /* Reduced height for better vertical fit */
+            }
+
+            #main-carousel-container .card-desc-section {
+                /* Description section takes full width and fills remaining space */
+                width: 100%;
+                height: 100%;
+                padding: 1rem;
+            }
+            
+            /* Ensure the inner image fits the new fixed height */
+            #main-carousel-container .card-image-section img {
+                height: 100%;
+                object-fit: cover;
+            }
+            /* Remove left rounded corner override from desktop */
+            #main-carousel-container .card-image-section {
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+            /* Remove right rounded corner override from desktop */
+            #main-carousel-container .card-desc-section {
+                border-radius: 0 0 0.5rem 0.5rem;
+            }
+        }
+        /* >>> END NEW MOBILE CARD LAYOUT <<< */
+        
         /* Client/Cert Carousel Layout (Full width image, no desc section) */
         #client-carousel-container .card-image-section,
         #cert-carousel-container .card-image-section {
